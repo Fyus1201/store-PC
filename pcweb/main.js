@@ -770,6 +770,15 @@
 
             if(sliderClass.check()&&errorClass.returnError()){
                 console.log("登陆");
+
+                (function(){
+                    $(".box").removeClass("box_current");
+                    $(".user_alert").removeClass("user_current");
+                    document.documentElement.style.overflow='';
+                    document.body.style.overflow='';
+
+                    $(document).unbind();
+                })()
             }else{
                 console.log("错误");
             }
