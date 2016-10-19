@@ -21,8 +21,100 @@
 
 <!--<script src="http://siteapp.baidu.com/static/webappservice/uaredirect.js" type="text/javascript"></script>-->
     <!--<script type="text/javascript">uaredirect("你的手机版网址");</script>-->
-
     <link rel="stylesheet" href="./index.css">
+    <script src="http://odji6lyqv.bkt.clouddn.com/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            //可视位置
+            function getClient(){
+                var l, t, w, h;
+                l = document.documentElement.scrollLeft || document.body.scrollLeft;
+                t = document.documentElement.scrollTop || document.body.scrollTop;
+                w = document.documentElement.clientWidth;
+                h = document.documentElement.clientHeight;
+                return { left: l, top: t, width: w, height: h };
+            }
+            // 返回待加载资源位置
+            function getSubClient(p){
+                var i, w, h;
+                w = p.width();
+                h = p.height();
+                i = p.offset();
+                
+                return { left: i.left, top: i.top, width: w, height: h };
+            }
+            // 判断两个矩形是否相交,返回一个布尔值
+            function intens(rec1, rec2){
+                var lc1, lc2, tc1, tc2, w1, h1;
+                lc1 = rec1.left + rec1.width / 2;
+                lc2 = rec2.left + rec2.width / 2;
+                tc1 = rec1.top + rec1.height / 2 ;
+                tc2 = rec2.top + rec2.height / 2 ;
+                w1 = (rec1.width + rec2.width) / 2 ;
+                h1 = (rec1.height + rec2.height) / 2;
+
+                return (Math.abs(lc1 - lc2) < w1) && (Math.abs(tc1 - tc2) < h1) ;
+            }
+
+            // 比较某个子区域是否呈现在浏览器区域
+            function jiance(arr, prec1, callback){
+
+                var prec2;
+                for(var i = arr.length - 1; i >= 0; i--){
+                    if(arr[i]){
+                        var isrc = arr[i].attr("original");
+
+                        prec2 = getSubClient(arr[i]);
+                        if (intens(prec1, prec2)) {
+                            callback(arr[i]);
+                            // 加载资源后，删除监测
+                            arr[i].attr("src",function(){
+                                 return isrc}
+                            ).fadeIn(300);
+                            delete arr[i];
+                        }
+                    }
+                }
+            }
+
+            var arrImg = new Array();
+            $(" img").each(function(i){
+                arrImg[i]= $(" img").eq(i);
+            });
+            // 检测目标对象是否出现在客户区
+            function autocheck(){
+                var prec1 = getClient();
+                jiance(arrImg, prec1, function(obj){
+                    // 加载资源...
+
+                })
+            }
+            autocheck();
+            window.onscroll = function(){
+                autocheck();
+
+            };
+            window.onresize = function(){
+                autocheck();
+            };
+
+            function loadImage(url, callback) {
+                var img = new Image(); //创建一个Image对象，实现图片的预下载
+                img.src = url;
+
+                if(img.complete) { // 如果图片已经存在于浏览器缓存，直接调用回调函数
+                    callback.call(img);
+                    return; // 直接返回，不用再处理onload事件
+                }
+                img.onload = function () { //图片下载完毕时异步调用callback函数。
+                    callback.call(img);//将回调函数的this替换为Image对象
+                };
+            }
+        })
+
+    </script>
+
 </head>
 <body>
 <div id="mian">
@@ -58,7 +150,7 @@
 
         <div class="logo">
             <a href="#">
-                <img src="http://odji6lyqv.bkt.clouddn.com/LOGO.png">
+                <img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/LOGO.png">
             </a>
         </div>
 
@@ -356,40 +448,40 @@
                 </div>
                 <div class="content-t">
                     <ul class="content-tul">
-                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jian0.jpg"></a></li>
-                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jian1.jpg"></a></li>
-                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jian2.jpg"></a></li>
-                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jian3.jpg"></a></li>
-                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jian0.jpg"></a></li>
+                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jian0.jpg"></a></li>
+                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jian1.jpg"></a></li>
+                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jian2.jpg"></a></li>
+                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jian3.jpg"></a></li>
+                        <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jian0.jpg"></a></li>
                     </ul>
                 </div>
                 <div class="content-r">
                     <ul class="content-rul">
                         <li>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui2.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui3.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui2.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui3.png"></a></p>
                         </li>
                         <li>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui2.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui3.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui2.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui3.png"></a></p>
                         </li>
                         <li>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui3.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui2.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui1.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui3.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui2.png"></a></p>
                         </li>
                         <li>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui3.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui2.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui5.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui3.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui2.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui5.png"></a></p>
                         </li>
                         <li>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui5.png"></a></p>
-                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/tui4.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui5.png"></a></p>
+                            <p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/tui4.png"></a></p>
                         </li>
                     </ul>
                 </div>
@@ -406,13 +498,13 @@
                 <div class="cuxiao">
                     <div class="cu-title">
                         <span class="cuxiaotitle">活动促销</span>
-                        <img class="cuxiaoimg" src="http://odji6lyqv.bkt.clouddn.com/cuxiaostr.png">
+                        <img class="cuxiaoimg" src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cuxiaostr.png">
                     </div>
                     <div class="cu-main">
                         <ul class="cu-line">
                             <li class="cu-itemli">
                                 <a class="cu-itema" href="#">
-                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/组%2011.png"></span>
+                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/组%2011.png"></span>
                                     <span class="cu-item">
                                         <span class="cu-itemdesc"><p class="item-name" title="【澳洲西冷牛排4份装】">【澳洲西冷牛排4份装】</p></span>
                                         <span class="itemrmb cu-rmb">￥89.1</span>
@@ -421,7 +513,7 @@
                             </li>
                             <li class="cu-itemli">
                                 <a class="cu-itema" href="#">
-                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/组%2012.png"></span>
+                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/组%2012.png"></span>
                                     <span class="cu-item">
                                         <span class="cu-itemdesc"><p class="item-name" title="【红魔鬼赤霞干红 750ml】">【红魔鬼赤霞干红 750ml】</p></span>
                                         <span class="itemrmb cu-rmb">￥189</span>
@@ -430,7 +522,7 @@
                             </li>
                             <li class="cu-itemli">
                                 <a class="cu-itema" href="#">
-                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/组%2010.png"></span>
+                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/组%2010.png"></span>
                                     <span class="cu-item">
                                         <span class="cu-itemdesc"><p class="item-name" title="【鲳鱼 450g】">【鲳鱼 450g】</p></span>
                                         <span class="itemrmb cu-rmb">￥89</span>
@@ -439,7 +531,7 @@
                             </li>
                             <li class="cu-itemli">
                                 <a class="cu-itema" href="#">
-                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/组%2011.png"></span>
+                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/组%2011.png"></span>
                                     <span class="cu-item">
                                         <span class="cu-itemdesc"><p class="item-name" title="【红魔鬼赤霞干红 750ml】">【红魔鬼赤霞干红 750ml】</p></span>
                                         <span class="itemrmb cu-rmb">￥23.9</span>
@@ -450,7 +542,7 @@
                         <ul class="cu-line">
                             <li class="cu-itemli">
                                 <a class="cu-itema" href="#">
-                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/组%2010.png"></span>
+                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/组%2010.png"></span>
                                     <span class="cu-item">
                                         <span class="cu-itemdesc"><p class="item-name" title="【红魔鬼赤霞干红 750ml】">【红魔鬼赤霞干红 750ml】</p></span>
                                         <span class="itemrmb cu-rmb">￥19</span>
@@ -459,7 +551,7 @@
                             </li>
                             <li class="cu-itemli">
                                 <a class="cu-itema" href="#">
-                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/组%2011.png"></span>
+                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/组%2011.png"></span>
                                     <span class="cu-item">
                                         <span class="cu-itemdesc"><p class="item-name" title="【金轮王牌泰州香米 5kg】">【金轮王牌泰州香米 5kg】</p></span>
                                         <span class="itemrmb cu-rmb">￥82</span>
@@ -468,7 +560,7 @@
                             </li>
                             <li class="cu-itemli">
                                 <a class="cu-itema" href="#">
-                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/组%2013.png"></span>
+                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/组%2013.png"></span>
                                     <span class="cu-item">
                                         <span class="cu-itemdesc"><p class="item-name" title="【红魔鬼赤霞干红 750ml】">【红魔鬼赤霞干红 750ml】</p></span>
                                         <span class="itemrmb cu-rmb">￥89</span>
@@ -477,7 +569,7 @@
                             </li>
                             <li class="cu-itemli">
                                 <a class="cu-itema" href="#">
-                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/组%2012.png"></span>
+                                    <span class="cu-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/组%2012.png"></span>
                                     <span class="cu-item">
                                         <span class="cu-itemdesc"><p class="item-name" title="【金轮王牌泰州香米 5kg】">【金轮王牌泰州香米 5kg】</p></span>
                                         <span class="itemrmb cu-rmb">￥89</span>
@@ -571,7 +663,7 @@
                         <ul class="qianggo-itemul">
                             <li class="qianggo-itemli">
                                 <a class="qianggo-itema" href="#"  title="冠锦 无核西梅干 255g ￥36">
-                                    <span class="qianggo-img"><img src="http://odji6lyqv.bkt.clouddn.com/002.png" ></span>
+                                    <span class="qianggo-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/002.png" ></span>
                                     <span class="qianggo-item">
                                         <span class="qianggo-itemdesc"><p class="item-name">冠锦 无核西梅干 255g</p></span>
                                         <span class="itemrmb qiang-rmb"> ￥36</span>
@@ -580,7 +672,7 @@
                             </li>
                             <li class="qianggo-itemli">
                                 <a class="qianggo-itema" href="#" title="可康 芒果味果冻420g*5 ￥52">
-                                    <span class="qianggo-img"><img src="http://odji6lyqv.bkt.clouddn.com/003.png"></span>
+                                    <span class="qianggo-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/003.png"></span>
                                     <span class="qianggo-item">
                                         <span class="qianggo-itemdesc"><p class="item-name">可康 芒果味果冻420g*5</p></span>
                                         <span class="itemrmb qiang-rmb"> ￥52</span>
@@ -589,7 +681,7 @@
                             </li>
                             <li class="qianggo-itemli">
                                 <a class="qianggo-itema" href="#" title="英伯伦 富士苹果 25g ￥1.5">
-                                    <span class="qianggo-img"><img src="http://odji6lyqv.bkt.clouddn.com/002.png"></span>
+                                    <span class="qianggo-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/002.png"></span>
                                     <span class="qianggo-item">
                                         <span class="qianggo-itemdesc"><p class="item-name">英伯伦 富士苹果 25g</p></span>
                                         <span class="itemrmb qiang-rmb"> ￥1.5</span>
@@ -598,7 +690,7 @@
                             </li>
                             <li class="qianggo-itemli">
                                 <a class="qianggo-itema" href="#" title="英伯伦 波曼优质红茶精装 ￥88">
-                                    <span class="qianggo-img"><img src="http://odji6lyqv.bkt.clouddn.com/001.png"></span>
+                                    <span class="qianggo-img"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/001.png"></span>
                                     <span class="qianggo-item">
                                         <span class="qianggo-itemdesc"><p class="item-name">英伯伦 波曼优质红茶精装</p></span>
                                         <span class="itemrmb qiang-rmb"> ￥88</span>
@@ -610,12 +702,12 @@
                 </div>
                 <div class="guanggao">
                     <a href="#">
-                        <img src="http://odji6lyqv.bkt.clouddn.com/cangtiao.png">
+                        <img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cangtiao.png">
                     </a>
                 </div>
                 <div class="neiron neiron0">
                     <div class="neiron-t">
-                        <span class="neiron-name">粮油果蔬</span>
+                        <h3 class="neiron-name">粮油果蔬</h3>
                         <span class="neiron-title">
                             <ul class="neiron-ul">
                                 <li class="neiron-li selectedNeiron">精制肉类</li>
@@ -636,66 +728,66 @@
                             <li>家禽蛋类</li>
                             <li></li>
                         </ul>
-                        <a href="#" class="neiron-la"><img src="http://odji6lyqv.bkt.clouddn.com/cai-l.png"></a>
+                        <a href="#" class="neiron-la"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai-l.png"></a>
                     </div>
                     <div class="neiron-r">
                         <ul class="neiron-lul">
                             <li>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20119.png"></a></div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="neiron neiron1">
                     <div class="neiron-t">
-                        <span class="neiron-name">调味配料</span>
+                        <h3 class="neiron-name">调味配料</h3>
                         <span class="neiron-title">
                             <ul class="neiron-ul">
                                 <li class="neiron-li selectedNeiron">酱油酸醋</li>
@@ -715,66 +807,66 @@
                             <li></li>
                             <li></li>
                         </ul>
-                        <a href="#" class="neiron-la"><img src="http://odji6lyqv.bkt.clouddn.com/jiu-l.png"></a>
+                        <a href="#" class="neiron-la"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu-l.png"></a>
                     </div>
                     <div class="neiron-r">
                         <ul class="neiron-lul">
                             <li>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiu%20119.png"></a></div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="neiron neiron2">
                     <div class="neiron-t">
-                        <span class="neiron-name">零食小吃</span>
+                        <h3 class="neiron-name">零食小吃</h3>
                         <span class="neiron-title">
                             <ul class="neiron-ul">
                                 <li class="neiron-li selectedNeiron">牛肉鸭脖</li>
@@ -794,66 +886,66 @@
                             <li></li>
                             <li></li>
                         </ul>
-                        <a href="#" class="neiron-la"><img src="http://odji6lyqv.bkt.clouddn.com/xiao-l.png"></a>
+                        <a href="#" class="neiron-la"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao-l.png"></a>
                     </div>
                     <div class="neiron-r">
                         <ul class="neiron-lul">
                             <li>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20114.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/xiao%20119.png"></a></div>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="neiron neiron3">
                     <div class="neiron-t">
-                        <span class="neiron-name">干货蜜饯</span>
+                        <h3 class="neiron-name">干货蜜饯</h3>
                         <span class="neiron-title">
                             <ul class="neiron-ul">
                                 <li class="neiron-li selectedNeiron">香菇菌类</li>
@@ -873,59 +965,59 @@
                             <li></li>
                             <li></li>
                         </ul>
-                        <a href="#" class="neiron-la"><img src="http://odji6lyqv.bkt.clouddn.com/gan-l.png"></a>
+                        <a href="#" class="neiron-la"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan-l.png"></a>
                     </div>
                     <div class="neiron-r">
                         <ul class="neiron-lul">
                             <li>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
                             </li>
                             <li style="display:none">
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20116.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20117.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
-                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20113.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20112.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20115.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20116.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20117.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20118.png"></a></div>
+                                <div><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/gan%20119.png"></a></div>
                             </li>
                         </ul>
                     </div>
@@ -934,86 +1026,86 @@
             </div>
             <div class="content-mainr">
                 <div class="hot">
-                    <p>热卖榜</p>
+                    <h3>热卖榜</h3>
                     <ul>
-                        <li><p class="nb nb0">1</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/re0.png"></a></li>
-                        <li><p class="nb nb1">2</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/re1.png"></a></li>
-                        <li><p class="nb nb2">3</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/re2.png"></a></li>
-                        <li><p class="nb">4</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/re3.png"></a></li>
-                        <li><p class="nb">5</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/re4.png"></a></li>
-                        <li><p class="nb">6</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/re5.png"></a></li>
+                        <li><p class="nb nb0">1</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/re0.png"></a></li>
+                        <li><p class="nb nb1">2</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/re1.png"></a></li>
+                        <li><p class="nb nb2">3</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/re2.png"></a></li>
+                        <li><p class="nb">4</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/re3.png"></a></li>
+                        <li><p class="nb">5</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/re4.png"></a></li>
+                        <li><p class="nb">6</p><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/re5.png"></a></li>
                     </ul>
                 </div>
                 <div class="pingpai">
                     <h1>品牌专区</h1>
                     <ul>
                         <li>
-                            <div class="pingpai-a" ><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/title.png"></a></div>
+                            <div class="pingpai-a" ><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/title.png"></a></div>
                             <div class="pingpai-1">
                                 <div class="pingpai-10">
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
                                 </div>
                             </div>
                             <div class="pingpai-2">
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/1.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/2.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/3.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/4.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/5.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/6.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/7.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/8.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/1.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/2.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/3.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/4.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/5.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/6.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/7.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/8.png"></a></span>
                             </div>
                         </li>
                         <li>
-                            <div class="pingpai-a" ><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/title.png"></a></div>
+                            <div class="pingpai-a" ><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/title.png"></a></div>
                             <div class="pingpai-1">
                                 <div class="pingpai-10">
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
                                 </div>
                             </div>
                             <div class="pingpai-2">
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/1.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/2.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/3.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/4.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/5.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/6.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/7.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/8.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/1.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/2.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/3.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/4.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/5.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/6.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/7.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/8.png"></a></span>
                             </div>
                         </li>
                         <li>
-                            <div class="pingpai-a" ><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/title.png"></a></div>
+                            <div class="pingpai-a" ><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/title.png"></a></div>
                             <div class="pingpai-1">
                                 <div class="pingpai-10">
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
-                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r2.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r3.png"></a></span>
+                                    <span class="pingpai-11"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/r1.png"></a></span>
                                 </div>
                             </div>
                             <div class="pingpai-2">
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/1.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/2.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/3.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/4.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/5.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/6.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/7.png"></a></span>
-                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/8.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/1.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/2.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/3.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/4.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/5.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/6.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/7.png"></a></span>
+                                <span class="pingpai-21"><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/8.png"></a></span>
                             </div>
                         </li>
                     </ul>
@@ -1024,28 +1116,28 @@
         </div>
         <div class="content-map">
             <div class="neiron-t">
-                <span class="neiron-name">特产地图</span>
+                <h3 class="neiron-name">特产地图</h3>
                 <span class="map-title"></span>
             </div>
             <div class="map-main">
                 <span class="map-l">
-                    <img src="http://odji6lyqv.bkt.clouddn.com/map.png">
+                    <img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/map.png">
                 </span>
                 <span class="map-r">
                         <ul class="map-rt">
-                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/shangp0.png"></a></li>
-                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/shangp1.png"></a></li>
-                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/shangp2.png"></a></li>
-                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/shangp0.png"></a></li>
+                            <li><a href="#"><img width="655" height="214" src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/shangp0.png"></a></li>
+                            <li><a href="#"><img width="655" height="214" src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/shangp1.png"></a></li>
+                            <li><a href="#"><img width="655" height="214" src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/shangp2.png"></a></li>
+                            <li><a href="#"><img width="655" height="214" src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/shangp0.png"></a></li>
                         </ul>
                     <span class="jiao"><p class="jiaoli">3折</p></span>
                     <span class="map-rm">
                         <span class="map-rimg"><a href="#">
-                            <img class="mapImg" src="http://odji6lyqv.bkt.clouddn.com/adasdc.png">
+                            <img class="mapImg" src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/adasdc.png">
                         </a></span>
                         <p class="map-mname">金顺昌双虾仁上海市特产 </p>
                         <p class="map-mtitle">金顺昌桂花糕桂林特产 好吃的绿豆糕手工广西特产即食传统茶点心真材 实料桂花 糕色泽鲜美 金黄剔透 香间</p>
-                        <img class="jiage" src="http://odji6lyqv.bkt.clouddn.com/jiage.png">
+                        <img class="jiage" src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/jiage.png">
                         <span class="map-anniu">
                             <button type="submit" class="map-mai">立即购买</button>
                             <button type="submit" class="map-cang"><i class="iconfont iconfont1">&#xe607;</i>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp加入购物车</button>
@@ -1053,9 +1145,9 @@
                     </span>
                     <span class="map-rb">
                         <ul>
-                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20112.png"></a></li>
-                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></li>
-                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></li>
+                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20112.png"></a></li>
+                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20113.png"></a></li>
+                            <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%20114.png"></a></li>
                         </ul>
                     </span>
                         <ul class="qiu">
@@ -1067,14 +1159,14 @@
             </div>
         </div>
         <div class="content-cainixihuan">
-            <p>猜你喜欢</p>
+            <h3>猜你喜欢</h3>
             <div class="cainixihuan">
                 <ul>
-                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%2087.png"></a></li>
-                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%2088.png"></a></li>
-                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%2089.png"></a></li>
-                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%2090.png"></a></li>
-                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/cai%2091.png"></a></li>
+                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%2087.png"></a></li>
+                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%2088.png"></a></li>
+                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%2089.png"></a></li>
+                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%2090.png"></a></li>
+                    <li><a href="#"><img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/cai%2091.png"></a></li>
                 </ul>
             </div>
         </div>
@@ -1083,10 +1175,10 @@
     <!-- 底部-->
     <div id="footer">
         <div class="foot0">
-            <img src="http://odji6lyqv.bkt.clouddn.com/foot0.png">
+            <img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/foot0.png">
         </div>
         <div class="foot1">
-            <img src="http://odji6lyqv.bkt.clouddn.com/foot1.png">
+            <img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="http://odji6lyqv.bkt.clouddn.com/foot1.png">
         </div>
     </div>
 
@@ -1107,7 +1199,7 @@
         <div class="r-i2" onclick="">
             <div class="phoneweb">
                 <div class="erweima">
-                    <img src="./image/er1.png">
+                    <img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="./image/er1.png">
                 </div>
                 <div class="phoneweb1">◆</div>
             </div>
@@ -1146,7 +1238,7 @@
     </div>
 
 </div>
-<script src="http://odji6lyqv.bkt.clouddn.com/jquery.min.js"></script>
+
 <script src="fyus.jquery.js"></script>
 <script src="main.js"></script>
 </body>

@@ -1067,7 +1067,7 @@ ol,li,ul {
     overflow: hidden;
     background: white;
 }
-.hot p{
+.hot h3{
     width: 100%;
     line-height: 56px;
     height: 56px;
@@ -1570,7 +1570,7 @@ ol,li,ul {
 .cainixihuan img:hover{
     top: 12px;
 }
-.content-cainixihuan p{
+.content-cainixihuan h3{
 
     text-align: center;
     background: #ffffff;
