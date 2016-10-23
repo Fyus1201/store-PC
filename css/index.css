@@ -46,7 +46,7 @@ ol,li,ul {
 }
 @font-face {
     font-family: 'iconfont';
-    src:url(./font/iconfont.ttf) format('truetype');
+    src:url(../font/iconfont.ttf) format('truetype');
 }
 .iconfont{
 
@@ -111,11 +111,11 @@ ol,li,ul {
 }
 .icon-home{
     padding-left:19px;
-    background:url(img/01.%20Home.png) no-repeat;
+    background:url(../img/01.%20Home.png) no-repeat;
 }
 .icon-home:hover{
     padding-left:19px;
-    background:url(img/01.%20Home0.png) no-repeat;
+    background:url(../img/01.%20Home0.png) no-repeat;
 }
 
 /*top-right*/
@@ -1096,6 +1096,7 @@ ol,li,ul {
     font-size: 16px;
     background: #8a8a8a;
     color: white;
+    text-align: center;
 }
 .hot li:nth-child(1) p{
     background:#ff0000;
@@ -1660,7 +1661,7 @@ ol,li,ul {
 
     cursor: pointer;
     margin: 1px 1px 1px 1px;
-    background: url("./img/r-i.png") -0px -0px no-repeat;
+    background: url("../img/r-i.png") -0px -0px no-repeat;
 }
 .r-i0 img{
     position: absolute;
@@ -1671,7 +1672,7 @@ ol,li,ul {
 
     cursor: pointer;
     margin: 0 1px 0 1px;
-    background: url("./img/r-i.png") -44px -0px no-repeat;
+    background: url("../img/r-i.png") -44px -0px no-repeat;
 }
 .r-i2{
     width: 44px;
@@ -1679,7 +1680,7 @@ ol,li,ul {
 
     cursor: pointer;
     margin: 1px 1px 1px 1px;
-    background: url("./img/r-i.png") -88px -0px no-repeat;
+    background: url("../img/r-i.png") -88px -0px no-repeat;
 }
 .phoneweb{
     display: none;
