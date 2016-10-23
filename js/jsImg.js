@@ -30,7 +30,7 @@ $(function(){
         w1 = (rec1.width + rec2.width) / 2 ;
         h1 = (rec1.height + rec2.height) / 2;
 
-        return (Math.abs(lc1 - lc2) < w1) && (Math.abs(tc1 - tc2) < h1) ;
+        return (Math.abs(tc1 - tc2) < h1) ;
     }
 
     // 比较某个子区域是否呈现在浏览器区域

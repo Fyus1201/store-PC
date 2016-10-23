@@ -2,116 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="68a9910f-0f37-4785-a503-856984936f60" name="默认的" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jsImg.js" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/.idea/pcweb.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/font/iconfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/fyus.jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/001.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/002.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/003.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/01. Home.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/01. Home0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/LOGO.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/adasdc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 112.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 113.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 114.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 115.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 116.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 117.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 118.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 119.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 87.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 88.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 89.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 90.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai 91.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cai-l.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cangtiao.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/cuxiaostr.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/foot0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/foot1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan 112.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan 113.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan 115.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan 116.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan 117.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan 118.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan 119.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan-l.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/gan114.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiage.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jian0.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jian1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jian2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jian3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu 112.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu 113.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu 114.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu 115.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu 116.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu 117.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu 118.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu 119.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/jiu-l.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/map.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/r-i.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/r1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/r2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/r3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/re0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/re1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/re2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/re3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/re4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/re5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/shangp0.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/shangp1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/shangp2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/slider-go.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/slider-ok.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/title.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/tui1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/tui2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/tui3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/tui4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/tui5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/weblogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/weblogo_120X120.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/weblogo_128X128.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/weblogo_152X152.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/weblogo_16X16.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/weblogo_60X60.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/weblogo_76X76.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao 112.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao 113.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao 114.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao 115.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao 116.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao 117.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao 118.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao 119.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/xiao-l.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/组 10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/组 11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/组 12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/img/组 13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/pcweb/main.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/jsImg.js" afterPath="$PROJECT_DIR$/js/jsImg.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nonggou.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -135,7 +27,7 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.0833335">
+            <state vertical-scroll-proportion="-50.166668">
               <caret line="1104" column="18" selection-start-line="1104" selection-start-column="18" selection-end-line="1104" selection-end-column="18" />
               <folding>
                 <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -163,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="510" column="19" selection-start-line="510" selection-start-column="19" selection-end-line="510" selection-end-column="19" />
+              <caret line="657" column="24" selection-start-line="657" selection-start-column="24" selection-end-line="657" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -172,8 +64,8 @@
       <file leaf-file-name="jsImg.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/jsImg.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42242354">
-              <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+            <state vertical-scroll-proportion="1.1698754">
+              <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
               <folding>
                 <element signature="e#0#39#0" expanded="false" />
               </folding>
@@ -236,7 +128,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="72" />
+    <option name="y" value="23" />
     <option name="width" value="1242" />
     <option name="height" value="1001" />
   </component>
@@ -269,7 +161,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -304,6 +195,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -372,20 +264,20 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="72" width="1242" height="1001" extended-state="0" />
+    <frame x="0" y="23" width="1242" height="1001" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="版本控制" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34083334" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3525" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="运行" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -396,6 +288,57 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1104" column="18" selection-start-line="1104" selection-start-column="18" selection-end-line="1104" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#4;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#2;n#div#4;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#4;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#4;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#5;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#2;n#div#5;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#5;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#5;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#6;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#2;n#div#6;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#6;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#6;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="657" column="24" selection-start-line="657" selection-start-column="24" selection-end-line="657" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsImg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="940" column="1" selection-start-line="940" selection-start-column="1" selection-end-line="940" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/fyus.jquery.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -406,7 +349,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0833335">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1104" column="18" selection-start-line="1104" selection-start-column="18" selection-end-line="1104" selection-end-column="18" />
           <folding>
             <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -437,6 +380,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/jsImg.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#39#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -445,10 +398,67 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/js/fyus.jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/fyus.jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="940" column="1" selection-start-line="940" selection-start-column="1" selection-end-line="940" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-50.166668">
+          <caret line="1104" column="18" selection-start-line="1104" selection-start-column="18" selection-end-line="1104" selection-end-column="18" />
+          <folding>
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#3;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#4;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#2;n#div#4;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#4;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#4;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#5;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#2;n#div#5;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#5;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#5;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#2;n#div#6;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#2;n#ul#0;n#div#2;n#div#6;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#3;n#ul#0;n#div#2;n#div#6;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#4;n#ul#0;n#div#2;n#div#6;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="657" column="24" selection-start-line="657" selection-start-column="24" selection-end-line="657" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/jsImg.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42242354">
-          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+        <state vertical-scroll-proportion="1.1698754">
+          <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
           <folding>
             <element signature="e#0#39#0" expanded="false" />
           </folding>
