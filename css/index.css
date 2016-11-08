@@ -1674,6 +1674,36 @@ ol,li,ul {
     margin: 0 1px 0 1px;
     background: url("../img/r-i.png") -44px -0px no-repeat;
 }
+.webApp{
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 40px;
+    width: 170px;
+    height: 30px;
+    background: #7c7c7c;
+    opacity: 0.7;
+    z-index: 1005;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    cursor: default;
+}
+.phoneweb0{
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    font-size: 16px;
+    position: absolute;
+    top: 7px;
+    right: -8px;
+    /*opacity: 0.5;*/
+    color: #7c7c7c;
+    z-index: 1010;
+    /*display: none;*/
+}
 .r-i2{
     width: 44px;
     height: 44px;
@@ -1692,10 +1722,16 @@ ol,li,ul {
     background: #fff;
     z-index: 1005;
     cursor: default;
+
     border: 1px solid #D1D1D1;
     border-left: 0;
     box-shadow: 0 0 5px rgba(0,0,0,.4);
-
+}
+.erweima{
+    color: #7c122a;
+    font-size: 20px;
+    text-align: center;
+    line-height: 10px;
 }
 .phoneweb img{
     width: 140px;

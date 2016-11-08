@@ -19,8 +19,25 @@
     <link rel="shortcut icon" href=img/weblogo_16X16.ico type="image/x-icon">
     <link rel="icon" href=img/weblogo_16X16.ico>
 
-<!--<script src="http://siteapp.baidu.com/static/webappservice/uaredirect.js" type="text/javascript"></script>-->
-    <!--<script type="text/javascript">uaredirect("你的手机版网址");</script>-->
+    <script>
+        // TODO: 判断访问设备 进行跳转
+        !function(){
+            var system = {};
+            var p = navigator.platform;
+            system.win = p.indexOf("Win") == 0;
+            system.mac = p.indexOf("Mac") == 0;
+            system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+
+            if(system.win||system.mac||system.x11){
+                //如果是电脑
+//                window.location.href="http://og9mvui2y.bkt.clouddn.com/";
+            }else{
+                //如果是手机
+                window.location.href="http://og9m6a7cf.bkt.clouddn.com/";
+            }
+        }()
+    </script>
+
     <link rel="stylesheet" href="./css/index.css">
     <script src="http://odji6lyqv.bkt.clouddn.com/jquery.min.js"></script>
     <script src="./js/jsImg.js"></script>
@@ -1105,11 +1122,17 @@
     <div id="f-right">
         <div class="r-i0" onclick=""></div>
         <p class="ri0p" id="aaaaa">0</p>
-        <div class="r-i1" onclick=""></div>
+        <div class="r-i1" onclick="window.location.href='http://og9m6a7cf.bkt.clouddn.com/';">
+            <div class="webApp">
+                手机版
+                <div class="phoneweb0">◆</div>
+            </div>
+        </div>
         <div class="r-i2" onclick="">
             <div class="phoneweb">
                 <div class="erweima">
-                    <img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="./image/er1.png">
+                    <img src="http://odji6lyqv.bkt.clouddn.com/original-img.png" original="./img/1478576121.png">
+                    扫一扫
                 </div>
                 <div class="phoneweb1">◆</div>
             </div>

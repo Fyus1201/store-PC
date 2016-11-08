@@ -323,6 +323,14 @@
         );
 
         //手机web
+        $(".r-i1").hover(
+            function(){
+                $(".webApp").show();
+            },
+            function(){
+                $(".webApp").hide();
+            }
+        )
         $(".r-i2").hover(
             function(){
                 $(".phoneweb").show();
